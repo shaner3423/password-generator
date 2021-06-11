@@ -8,6 +8,15 @@ window.alert("At least one of the following: uppercase, lowercase, numeric, or s
 window.alert("When you are ready, please click 'OK' to continue.");
 
 
+passwordResult = document.getElementById('password')
+
+randomFunction = {
+  lower: getLower,
+  upper: getUpper,
+  number: getNumber,
+  symbol: getSymbol
+};
+
 function getLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
