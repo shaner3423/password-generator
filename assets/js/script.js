@@ -10,6 +10,21 @@ window.alert("When you are ready, please click 'OK' to continue.");
 
 passwordResult = document.getElementById('password')
 
+
+if (window.confirm("Do you want numbers?")) {
+  passworldResult = randomFunction
+}
+
+if (window.confirm("Do you want lowercase letters?")) {
+  passworldResult = randomFunction
+}
+
+if (window.confirm("Do you want uppercase letters?")) {
+  passworldResult = randomFunction
+}
+
+
+
 randomFunction = {
   lower: getLower,
   upper: getUpper,
