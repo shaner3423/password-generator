@@ -1,11 +1,11 @@
 // Assignment Code
 var generateBtn = document.getElementById("generate");
 
-// alert('Welcome to the password generator!');
-// alert("To keep your information safe, your password must contain the following criterias.");
-// alert("At least 8 characters (and up to 128 characters).");
-// alert("At least two of the following: uppercase, lowercase, numeric, or special characters.")
-// alert("When you are ready, please click 'OK' to continue.");
+alert('Welcome to the password generator!');
+alert("To keep your information safe, your password must contain the following criterias.");
+alert("At least 8 characters (and up to 128 characters).");
+alert("At least two of the following: uppercase, lowercase, numeric, or special characters.")
+alert("When you are ready, please click 'OK' to continue.");
 
 //Generate password function
 function generatePassword(lower, upper, number, symbol, length) {
