@@ -7,27 +7,21 @@ var generateBtn = document.getElementById("generate");
 // alert("At least two of the following: uppercase, lowercase, numeric, or special characters.")
 // alert("When you are ready, please click 'OK' to continue.");
 
-
-
-// randomFunction = {
-//   lower: getLower,
-//   upper: getUpper,
-//   number: getNumber,
-//   symbol: getSymbol
-// };
-
 //Generate password function
 function generatePassword(lower, upper, number, symbol, length) {
                           //  "asdasd"  "ASADSDASD" "" "" 8
  
   var password = '';
-  var passwordCharacterChoices = lower + upper + number + symbol; //"asdasdASADSDASD"
+  var passwordCharacterChoices = lower + upper + number + symbol; 
   console.log(passwordCharacterChoices);
 
   for (var i = 0; i < length; i++) {
     // generate random character from passwordChacaterChoices
-    
-    var randomCharacter = passwordCharacterChoices.charAt(Math.floor(Math.random() * passwordCharacterChoices.length));
+    var randomCharacterPosition = Math.floor(Math.random() * passwordCharacterChoices.length);
+
+    var randomCharacter = passwordCharacterChoices [
+      randomCharacterPosition
+    ]
     // add that character to the password
     console.log(password);
     console.log(randomCharacter);
