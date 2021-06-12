@@ -1,81 +1,86 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.getElementById("generate");
 
-window.alert('Welcome to the password generator!');
-window.alert("To keep your information safe, your password must contain the following criterias.");
-window.alert("At least 8 characters (and up to 128 characters).");
-window.alert("At least two of the following: uppercase, lowercase, numeric, or special characters.")
-window.alert("When you are ready, please click 'OK' to continue.");
-
-
-passwordResult = document.getElementById('password');
+// alert('Welcome to the password generator!');
+// alert("To keep your information safe, your password must contain the following criterias.");
+// alert("At least 8 characters (and up to 128 characters).");
+// alert("At least two of the following: uppercase, lowercase, numeric, or special characters.")
+// alert("When you are ready, please click 'OK' to continue.");
 
 
 
+// randomFunction = {
+//   lower: getLower,
+//   upper: getUpper,
+//   number: getNumber,
+//   symbol: getSymbol
+// };
 
-if (window.confirm("Do you want numbers?")) {
-  passworldResult = randomFunction
+//Generate password function
+function generatePassword(lower, upper, number, symbol, length) {
+                          //  "asdasd"  "ASADSDASD" "" "" 8
+ 
+  var password = '';
+  var passwordCharacterChoices = lower + upper + number + symbol; //"asdasdASADSDASD"
+  console.log(passwordCharacterChoices);
+
+  for (var i = 0; i < length; i++) {
+    // generate random character from passwordChacaterChoices
+    
+    var randomCharacter = passwordCharacterChoices.charAt(Math.floor(Math.random() * passwordCharacterChoices.length));
+    // add that character to the password
+    console.log(password);
+    console.log(randomCharacter);
+    password = password + randomCharacter;
+
+  }
+
+  return password;
+
 }
-
-if (window.confirm("Do you want lowercase letters?")) {
-  passworldResult = randomFunction
-}
-
-if (window.confirm("Do you want uppercase letters?")) {
-  passworldResult = randomFunction
-}
-
-
-
-randomFunction = {
-  lower: getLower,
-  upper: getUpper,
-  number: getNumber,
-  symbol: getSymbol
-};
-
-function getLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-console.log(getLower());
-
-function getUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-console.log(getUpper());
-
-function getNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-console.log(getNumber());
-
-function getSymbol() {
-  symbols = '!@#$%^&*(){}[]=></'
-  return symbols [Math.floor(Math.random() * symbols.length)];
-}
-console.log(getSymbol());
-
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+
+  var lower = "";
+  var upper = "";
+  var symbol = "";
+  var number = "";
+
+
+  var length = window.prompt('How long do you want your password to be?');
+  if ( length < 8 || length > 128 ) {
+    alert('Please choose a number between 8-128.');
+    writePassword();
+  } 
+  if (window.confirm("Do you want numbers?")) {
+    number = "0123456789";
+    // number = String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  }
+  
+  if (window.confirm("Do you want lowercase letters?")) {
+    lower = "abcdefghijklmnopqrstuvwxyz"; 
+    // lower = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  }
+  
+  if (window.confirm("Do you want uppercase letters?")) {
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // upper = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
+
+  if (window.confirm("Do you want sysmbols?")){
+    symbol = "!@#$%^&*(){}[]=></";
+    // stmbol = symbols[Math.floor(Math.random() * symbols.length)];
+  }
+
+  var password = generatePassword(lower, upper, number, symbol, length);
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
-  password = generatePassword
-
 }
 
-
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword{
-//   length =
-//   hasLower =
-//   hasUpper =
-//   hasNumber =
-//   hasSymbol =
-// });
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
